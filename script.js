@@ -1,3 +1,19 @@
+// Theme Switcher
+const themeToggle = document.getElementById('theme-toggle');
+const html = document.documentElement;
+
+// Check for saved theme preference
+const savedTheme = localStorage.getItem('theme') || 'light';
+html.setAttribute('data-theme', savedTheme);
+
+themeToggle.addEventListener('click', () => {
+    const currentTheme = html.getAttribute('data-theme');
+    const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+
+    html.setAttribute('data-theme', newTheme);
+    localStorage.setItem('theme', newTheme);
+});
+
 // Mobile Navigation Toggle
 const menuBtn = document.querySelector('.menu-btn');
 const navLinks = document.querySelector('.nav-links');
@@ -56,12 +72,12 @@ const observer = new IntersectionObserver((entries) => {
     });
 }, observerOptions);
 
-// Observe all sections
-document.querySelectorAll('section').forEach(section => {
-    section.style.opacity = '0';
-    section.style.transform = 'translateY(20px)';
-    section.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
-    observer.observe(section);
+// Observe all sections and project cards
+document.querySelectorAll('section, .project-card, .skill-category').forEach(element => {
+    element.style.opacity = '0';
+    element.style.transform = 'translateY(20px)';
+    element.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
+    observer.observe(element);
 });
 
 // Add hover effect to project cards
@@ -77,4 +93,29 @@ document.querySelectorAll('.project-card').forEach(card => {
 
 // Dynamic Copyright Year
 document.querySelector('.footer p').textContent =
-    `© ${new Date().getFullYear()} Your Name. All rights reserved.`; 
+    `© ${new Date().getFullYear()} Edgard Murillo. All rights reserved.`;
+
+// Add typing effect to hero section
+const heroTitle = document.querySelector('.hero-content h1');
+const heroSubtitle = document.querySelector('.hero-subtitle');
+const heroDescription = document.querySelector('.hero-description');
+
+const typeWriter = (element, text, speed = 50) => {
+    let i = 0;
+    element.innerHTML = '';
+    const type = () => {
+        if (i < text.length) {
+            element.innerHTML += text.charAt(i);
+            i++;
+            setTimeout(type, speed);
+        }
+    };
+    type();
+};
+
+// Start typing animation when page loads
+window.addEventListener('load', () => {
+    typeWriter(heroTitle, 'Edgard Murillo', 100);
+    setTimeout(() => typeWriter(heroSubtitle, 'Web • Mobile • Blockchain', 50), 1500);
+    setTimeout(() => typeWriter(heroDescription, '9+ years of experience in software development', 30), 3000);
+}); 
