@@ -93,7 +93,7 @@ document.querySelectorAll('.project-card').forEach(card => {
 
 // Dynamic Copyright Year
 document.querySelector('.footer p').textContent =
-    `© ${new Date().getFullYear()} Edgard Murillo. All rights reserved.`;
+    `© ${new Date().getFullYear()} Anas Mohamed. All rights reserved.`;
 
 // Add typing effect to hero section
 const heroTitle = document.querySelector('.hero-content h1');
@@ -115,7 +115,7 @@ const typeWriter = (element, text, speed = 50) => {
 
 // Start typing animation when page loads
 window.addEventListener('load', () => {
-    typeWriter(heroTitle, 'Edgard Murillo', 100);
+    typeWriter(heroTitle, 'Anas Mohamed', 100);
     setTimeout(() => typeWriter(heroSubtitle, 'Web • Mobile • Blockchain', 50), 1500);
     setTimeout(() => typeWriter(heroDescription, '9+ years of experience in software development', 30), 3000);
 }); 

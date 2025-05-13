@@ -154,7 +154,7 @@ body {
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(255, 255, 255, 0.9);
+    background: rgba(255, 255, 255, 0.3);
     z-index: 1;
 }
 
@@ -174,13 +174,13 @@ body {
 
 .hero-content h2 {
     font-size: 2rem;
-    color: var(--text-color);
+    color: white;
     margin-bottom: 1rem;
 }
 
 .hero-content p {
     font-size: 1.2rem;
-    color: var(--light-text);
+    color: white;
     margin-bottom: 0.5rem;
 }
 
@@ -269,6 +269,10 @@ section {
 }
 
 /* Skills Section */
+.skills {
+    margin: 0 10rem;
+}
+
 .skills-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -339,7 +343,7 @@ section {
 }
 
 .timeline-content {
-    background: white;
+    /* background: white; */
     padding: 2rem;
     border-radius: 1rem;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
@@ -395,6 +399,7 @@ section {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
     gap: 2rem;
+    margin: 0 10rem;
 }
 
 .project-card {
